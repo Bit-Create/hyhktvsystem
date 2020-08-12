@@ -7,10 +7,19 @@
 </template>
 
 <script>
+import {getRoomList} from "@/nettwork/room";
+
 export default {
   name: "RoomBar",
+  data() {
+    return {
+      roomlist: []
+    }
+  },
   created() {
-
+    getRoomList(res => {
+      this.roomlist = res
+    })
   }
 }
 </script>
