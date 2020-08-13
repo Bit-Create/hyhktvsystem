@@ -1,10 +1,14 @@
 <template>
-  <h2>房间</h2>
+  <div>
+    <room-list></room-list>
+  </div>
 </template>
 
 <script>
+import RoomList from "@/views/Room/RoomList";
 export default {
-name: "Room"
+name: "Room",
+  components: {RoomList}
 }
 </script>
 
