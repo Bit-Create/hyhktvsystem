@@ -1,14 +1,28 @@
-<template>
-  <div>
-    <room-list></room-list>
+<template >
+  <div style="background-color: #f3f3f3">
+    <div v-for="room in roomlist" >
+      <room-card :room="room"></room-card>
+    </div>
   </div>
 </template>
 
 <script>
-import RoomList from "@/views/Room/RoomList";
+import RoomCard from "@/views/Room/RoomCard";
+import {getRoomList} from "@/nettwork/room";
+
 export default {
 name: "Room",
-  components: {RoomList}
+  components: {RoomCard},
+  data() {
+    return {
+      roomlist: []
+    }
+  },
+  created() {
+    getRoomList().then(res => {
+      this.roomlist = res
+    })
+  }
 }
 </script>
 

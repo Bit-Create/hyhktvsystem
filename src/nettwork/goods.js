@@ -1,9 +1,9 @@
 import {request} from "@/nettwork/request";
 
-export function getRoomList() {
+export function getGoodsAll() {
   return request({
     method: 'get',
-    url: '/room',
+    url: '/goods',
     params: {
       operation: 'select',
       type: 'all',
@@ -14,16 +14,15 @@ export function getRoomList() {
   })
 }
 
-export function setRoomState(roomid, state) {
+export function getGoodsType(goodtype) {
   return request({
     method: 'get',
-    url: '/room',
+    url: '/goods',
     params: {
-      operation: 'update',
-      type: 'state',
+      operation: 'select',
+      type: 'type',
       data: {
-        roomid: roomid,
-        state: state
+        goodtype,
       }
     }
   })

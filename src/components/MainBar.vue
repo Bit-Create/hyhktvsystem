@@ -24,7 +24,7 @@
       </menu-group>
     </submenu>
     <menu-item name="5" to="/about">
-      <icon type="ios-construct"/>
+      <icon type="ios-information-circle"/>
       关于
     </menu-item>
   </i-menu>

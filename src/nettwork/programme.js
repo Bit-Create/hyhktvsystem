@@ -1,9 +1,9 @@
 import {request} from "@/nettwork/request";
 
-export function getMemberMultidata() {
+export function getProgrammeAll() {
   return request({
     method: 'get',
-    url: '/member',
+    url: '/programme',
     params: {
       operation: 'select',
       type: 'all',
@@ -13,3 +13,4 @@ export function getMemberMultidata() {
     }
   })
 }
+

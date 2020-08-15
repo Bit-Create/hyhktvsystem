@@ -2,14 +2,24 @@
   <Collapse >
     <Panel name="1">
       消费详细
-      <p slot="content">中包下午场-9999999</p>
+      <template slot="content">
+        <Divider>套餐详细</Divider>
+        <programme-table></programme-table>
+        <Divider>商品出售列表</Divider>
+      </template>
     </Panel>
   </Collapse>
 </template>
 
 <script>
+import ProgrammeTable from "@/components/ProgrammeTable";
+
 export default {
-  name: "RoomCollapse"
+  name: "RoomCollapse",
+  components: {ProgrammeTable},
+  created() {
+
+  }
 }
 </script>
 
