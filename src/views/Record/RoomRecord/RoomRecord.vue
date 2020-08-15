@@ -1,10 +1,12 @@
 <template>
-  <h2>记录</h2>
+  <div>
+    <h2>开房记录</h2>
+  </div>
 </template>
 
 <script>
 export default {
-name: "Record"
+name: "RoomRecord"
 }
 </script>
 

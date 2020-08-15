@@ -4,7 +4,8 @@ import VueRouter from 'vue-router'
 const Home = () => import('../views/Home/Home')
 const Room = () => import('../views/Room/Room')
 const Member = () => import('../views/Member/Member')
-const Record = () => import('../views/Record/Record')
+const StorageRecord = () => import('../views/Record/StorageRecord/StorageRecord')
+const RoomRecord = () => import('@/views/Record/RoomRecord/RoomRecord')
 const About = () => import('../views/About/About')
 
 Vue.use(VueRouter)
@@ -27,8 +28,12 @@ const routes = [
     component: Member
   },
   {
-    path: '/record',
-    component: Record
+    path: '/roomrecord',
+    component: RoomRecord
+  },
+  {
+    path: '/storagerecord',
+    component: StorageRecord
   },
   {
     path: '/about',

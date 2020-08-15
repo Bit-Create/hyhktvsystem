@@ -19,6 +19,7 @@ name: "Room",
     }
   },
   created() {
+    console.log('room created');
     getRoomList().then(res => {
       this.roomlist = res
     })

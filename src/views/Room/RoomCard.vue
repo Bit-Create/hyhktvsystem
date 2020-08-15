@@ -3,9 +3,9 @@
     <card style="font-size: 20px" >
       房间号：{{room.roomid}}
       <div>房间大小：{{room.type}}</div>
-      <room-modal :modal="modal" :room="room" style="text-align: right"></room-modal>
+      <room-modal :modal="modal" :room="room"  style="text-align: right"></room-modal>
     </card>
-    <room-collapse v-if="room.state == 'using'"></room-collapse>
+    <room-collapse v-if="room.state == 'using'" :room="room" ></room-collapse>
   </div>
 </template>
 

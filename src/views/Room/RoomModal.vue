@@ -43,12 +43,10 @@ export default {
         this.$Message.info("错误！未选择套餐")
         return
       }
-      setRoomRecord(this.room.roomid, this.$refs.pro.programmeid, this.tel).then(res => {
-        console.log(res);
+      setRoomRecord(this.room.roomid, this.$refs.pro.programmeid, this.tel).then(res1 => {
         if (res.message == 'true') {
-          setRoomState(this.room.roomid, 'using').then((res) => {
-              if(res.message == 'true') {
-                console.log(res);
+          setRoomState(this.room.roomid, 'using').then((res2) => {
+              if(res2.message == 'true') {
                 this.room.state = 'using'
               }
           })

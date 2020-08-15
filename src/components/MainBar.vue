@@ -1,5 +1,5 @@
 <template>
-  <i-menu mode="horizontal" theme="light" active-name="1">
+  <i-menu mode="horizontal" theme="light" >
     <menu-item name="1" to="/home">
       <icon type="ios-analytics"/>
       首页
@@ -18,9 +18,8 @@
         记录查询
       </template>
       <menu-group title="记录">
-        <menu-item name="4-1">存酒记录</menu-item>
-        <menu-item name="4-2">开房记录</menu-item>
-        <menu-item name="4-3">售卖记录</menu-item>
+        <menu-item name="4-1" to="/storagerecord">存酒记录</menu-item>
+        <menu-item name="4-2" to="/roomrecord">开房记录</menu-item>
       </menu-group>
     </submenu>
     <menu-item name="5" to="/about">
