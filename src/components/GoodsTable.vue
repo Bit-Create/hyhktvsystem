@@ -10,6 +10,11 @@ export default {
     return {
       title: [
         {
+          type: 'selection',
+          width: 60,
+          aligin: 'center'
+        },
+        {
           title: '商品编号',
           key: 'goodid'
         },

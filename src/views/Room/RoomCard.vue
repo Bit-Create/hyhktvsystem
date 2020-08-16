@@ -1,9 +1,9 @@
 <template>
   <div class="divstyle">
-    <card style="font-size: 20px" >
+    <card style="font-size: 20px" v->
       房间号：{{room.roomid}}
       <div>房间大小：{{room.type}}</div>
-      <room-modal :modal="modal" :room="room"  style="text-align: right"></room-modal>
+      <room-modal :room="room"  style="text-align: right"></room-modal>
     </card>
     <room-collapse v-if="room.state == 'using'" :room="room" ></room-collapse>
   </div>
@@ -16,11 +16,6 @@ import RoomModal from "@/views/Room/RoomModal";
 export default {
   name: "RoomCard",
   components: {RoomModal, RoomCollapse},
-  data() {
-    return {
-      modal: false,
-    }
-  },
   props:{
     room: Object
   }

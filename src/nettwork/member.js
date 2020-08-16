@@ -13,3 +13,17 @@ export function getMemberMultidata() {
     }
   })
 }
+
+export function getMember(tel) {
+  return request({
+    method: 'get',
+    url: '/member',
+    params: {
+      operation: 'select',
+      type: 'telephone',
+      data: {
+        telephone: tel
+      }
+    }
+  })
+}

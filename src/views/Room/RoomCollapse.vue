@@ -4,11 +4,12 @@
       消费详细
       <template slot="content">
         <Divider>套餐详细</Divider>
-        <programme-table></programme-table>
+        <programme-table :programmes="programme"></programme-table>
         <br>
         <Divider>商品出售列表</Divider>
         <div style="text-align: right">
-          <Button type="info" shape="circle">选择已有商品</Button>
+          <Button type="info" shape="circle" @click="modal = true">选择已有商品</Button>
+          <goods-modal :modal="modal"></goods-modal>
           <Button type="info" shape="circle">增加自定义商品</Button>
         </div>
         <salerecord-table></salerecord-table>
@@ -21,13 +22,15 @@
 import ProgrammeTable from "@/components/ProgrammeTable";
 import SalerecordTable from "@/components/SalerecordTable";
 import {getProramme} from "@/nettwork/programme";
+import GoodsModal from "@/components/GoodsModal";
 
 export default {
   name: "RoomCollapse",
-  components: {SalerecordTable, ProgrammeTable},
+  components: {GoodsModal, SalerecordTable, ProgrammeTable},
   data() {
     return {
-      programme: []
+      programme: [],
+      modal: false
     }
   },
   props: {
@@ -35,6 +38,7 @@ export default {
   },
   created() {
     getProramme(this.room.roomid).then(res => {
+      console.log(res)
       this.programme = res
     })
   }

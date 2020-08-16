@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button v-if="room.state == 'free'" type="success" @click="modal = true">空闲</Button>
+    <Button v-if="room.state == 'free'" type="success" @click="showProgrammesAll">空闲</Button>
     <Button v-else disabled ghost type="error" style="color: red">使用中</Button>
     <Modal
     v-model="modal"
@@ -30,12 +30,12 @@ export default {
   data() {
     return {
       tel: null,
-      programmes: []
+      programmes: [],
+      modal: false
     }
   },
   props: {
-    modal: Boolean,
-    room: Object,
+    room: Object
   },
   methods: {
     ok () {
@@ -44,25 +44,30 @@ export default {
         return
       }
       setRoomRecord(this.room.roomid, this.$refs.pro.programmeid, this.tel).then(res1 => {
-        if (res.message == 'true') {
+        console.log(res1)
+        if (res1.message == 'true') {
           setRoomState(this.room.roomid, 'using').then((res2) => {
+              console.log(res2)
               if(res2.message == 'true') {
                 this.room.state = 'using'
+                this.$Message.info('选择套餐成功');
+                return
               }
           })
         }
       })
-      this.$Message.info('选择套餐成功');
+      this.$Message.info('错误，服务器连接失败');
     },
     cancel () {
       this.$Message.info('取消套餐选择');
+    },
+    showProgrammesAll() {
+      this.modal = true
+      getProgrammeAll().then(res => {
+        this.programmes = res
+      })
     }
-  },
-  created() {
-    getProgrammeAll().then(res => {
-      this.programmes = res
-    })
-  },
+  }
 }
 </script>
 

@@ -41,15 +41,11 @@ export default {
           title: '青岛（罐）',
           key: 'qingdao_jar',
         }
-      ],
-      members: []
+      ]
     }
   },
-  created() {
-    getMemberMultidata().then(res => {
-      console.log(res);
-      this.members = res
-    })
+  props: {
+    members: []
   }
 }
 </script>

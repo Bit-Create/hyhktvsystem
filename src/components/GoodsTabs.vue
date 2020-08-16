@@ -1,21 +1,21 @@
 <template>
-  <Tabs value="all">
-    <TabPane @click="getAll" label="全部" name="all">
+  <Tabs value="all" @on-click="showGoods">
+    <TabPane label="全部" name="all">
       <goods-table :goods="goods"></goods-table>
     </TabPane>
-    <TabPane @click="getType" label="酒" name="酒">
+    <TabPane label="酒" name="酒">
       <goods-table :goods="goods"></goods-table>
     </TabPane>
-    <TabPane @click="getType" label="槟榔" name="槟榔">
+    <TabPane label="槟榔" name="槟榔">
       <goods-table :goods="goods"></goods-table>
     </TabPane>
-    <TabPane @click="getType" label="饮料" name="饮料">
+    <TabPane label="饮料" name="饮料">
       <goods-table :goods="goods"></goods-table>
     </TabPane>
-    <TabPane @click="getType" label="零食" name="零食">
+    <TabPane label="零食" name="零食">
       <goods-table :goods="goods"></goods-table>
     </TabPane>
-    <TabPane @click="getType" label="其他" name="其他">
+    <TabPane label="其他" name="其他">
       <goods-table :goods="goods"></goods-table>
     </TabPane>
   </Tabs>
@@ -34,9 +34,16 @@ export default {
     }
   },
   methods: {
+    showGoods(name) {
+      if (name == 'all'){
+        console.log(name)
+        this.getAll()
+      } else {
+        this.getType(name)
+      }
+    },
     getAll() {
       getGoodsAll().then(res => {
-        console.log('发送请求');
         this.goods = res
       })
     },
@@ -45,6 +52,11 @@ export default {
         this.goods = res
       })
     }
+  },
+  created() {
+    getGoodsAll().then(res => {
+      this.goods = res
+    })
   }
 }
 </script>
