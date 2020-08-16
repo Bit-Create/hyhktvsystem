@@ -1,5 +1,5 @@
 <template>
-  <Table  :columns="title" :data="goods">
+  <Table  :columns="title" :data="goods" @on-selection-change="selectChange" ref="selection">
   </Table>
 </template>
 
@@ -35,6 +35,11 @@ export default {
   },
   props: {
     goods: Array
+  },
+  methods: {
+    selectChange() {
+      console.log(this.selection)
+    }
   }
 }
 </script>

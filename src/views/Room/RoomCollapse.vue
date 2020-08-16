@@ -8,8 +8,8 @@
         <br>
         <Divider>商品出售列表</Divider>
         <div style="text-align: right">
-          <Button type="info" shape="circle" @click="modal = true">选择已有商品</Button>
-          <goods-modal :modal="modal"></goods-modal>
+          <Button type="info" shape="circle" @click="setModal" ref="selectGoods">选择已有商品</Button>
+          <goods-modal :modal="modal" @cancel="setModal"></goods-modal>
           <Button type="info" shape="circle">增加自定义商品</Button>
         </div>
         <salerecord-table></salerecord-table>
@@ -36,9 +36,13 @@ export default {
   props: {
     room: Object
   },
+  methods: {
+    setModal() {
+      this.modal = !this.modal
+    }
+  },
   created() {
     getProramme(this.room.roomid).then(res => {
-      console.log(res)
       this.programme = res
     })
   }

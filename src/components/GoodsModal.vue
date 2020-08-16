@@ -22,7 +22,7 @@ export default {
 
     },
     cancel() {
-      this.modal = false
+      this.$emit('cancel')
       this.$Message.info('取消添加商品')
     }
   }
