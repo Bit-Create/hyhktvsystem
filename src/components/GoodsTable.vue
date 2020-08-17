@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Table  :columns="title" :data="goods" @on-selection-change="selectChange">
+    <Table  :columns="title" :data="goods" @on-selection-change="selectChange" max-height="500">
     </Table>
   </div>
 </template>
@@ -41,8 +41,6 @@ export default {
   methods: {
     selectChange(selection) {
       this.$store.commit('setOptGoods', selection)
-      console.log(selection)
-      console.log(this.$store.state.optgoods)
     }
   }
 }

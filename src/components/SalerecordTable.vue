@@ -55,16 +55,18 @@ export default {
   },
   methods: {
     decrement(row) {
-      updateSelecord(row.srid, row.count - 1).then(res => {
+      updateSelecord(row.srid, row.count - 1, 'decrement').then(res => {
         if (res.message == 'true') {
           row.count--
+          this.$emit('payAble', res.payable)
         }
         })
     },
     increment(row) {
-      updateSelecord(row.srid, row.count + 1).then(res => {
+      updateSelecord(row.srid, row.count + 1, 'increment').then(res => {
         if (res.message == 'true') {
           row.count++
+          this.$emit('payAble', res.payable)
         }
       })
     },
@@ -75,6 +77,8 @@ export default {
             if (this.records[i].srid == row.srid) {
               this.records.splice(i, 1)
               this.$Message.info('删除成功')
+              this.$emit('payAble', res.payable)
+              break
             }
           }
         }

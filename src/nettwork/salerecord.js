@@ -29,13 +29,13 @@ export function getSelecord(roomid) {
   })
 }
 
-export function updateSelecord(srid, count) {
+export function updateSelecord(srid, count, mode) {
   return request({
     method: 'get',
     url: '/salerecord',
     params: {
       operation: 'update',
-      type: 'srid',
+      type: mode,
       data: {
         srid: srid,
         count: count

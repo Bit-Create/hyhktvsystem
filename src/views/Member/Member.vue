@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="inputstyle">
-      <Input search placeholder="输入电话号码..." v-model="tel" @on-search="searchMembers"></Input>
+      <Input search
+             placeholder="输入电话号码..."
+             v-model="tel" @on-search="searchMembers"
+             @on-change="isShow = false"></Input>
       <Button type="primary" style="margin-left: 10px">存酒</Button>
     </div>
 
@@ -17,8 +20,6 @@
 
   </div>
 </template>
-
-
 
 <script>
 import MemberTable from "@/views/Member/MemberTable";
@@ -49,7 +50,7 @@ export default {
   },
   created() {
     getMemberMultidata().then(res => {
-      console.log(res);
+      console.log(res)
       this.members = res
     })
   }

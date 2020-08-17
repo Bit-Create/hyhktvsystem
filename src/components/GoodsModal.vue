@@ -18,11 +18,9 @@ export default {
   components: {GoodsTabs},
   methods: {
     ok() {
-      console.log(this.$store.state.optgoods)
       this.$emit('ok',  this.$store.state.optgoods)
     },
     cancel() {
-      this.$store.commit('setGoodsModal')
       this.$Message.info('取消添加商品')
     }
   }

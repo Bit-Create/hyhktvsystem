@@ -15,3 +15,17 @@ export function setRoomRecord(roomid, programmeid, tel) {
     }
   })
 }
+
+export function seletetPay(roomid) {
+  return request({
+    method: 'get',
+    url: '/roomrecord',
+    params: {
+      operation: 'select',
+      type: 'pay',
+      data: {
+        roomid: roomid
+      }
+    }
+  })
+}
