@@ -1,28 +1,28 @@
 <template>
   <Modal
-    v-model="modal"
+    v-model="$store.state.goodsmodal"
     title="请选择商品"
     @on-ok="ok"
     @on-cancel="cancel"
     width="1020px">
-    <goods-tabs></goods-tabs>
+    <goods-tabs ref="goods"></goods-tabs>
   </Modal>
 </template>
 
 <script>
 import GoodsTabs from "@/components/GoodsTabs";
+
+
 export default {
   name: "GoodsModal",
   components: {GoodsTabs},
-  props: {
-    modal: false
-  },
   methods: {
     ok() {
-
+      console.log(this.$store.state.optgoods)
+      this.$emit('ok',  this.$store.state.optgoods)
     },
     cancel() {
-      this.$emit('cancel')
+      this.$store.commit('setGoodsModal')
       this.$Message.info('取消添加商品')
     }
   }

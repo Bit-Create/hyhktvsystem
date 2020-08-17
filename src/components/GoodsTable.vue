@@ -1,6 +1,8 @@
 <template>
-  <Table  :columns="title" :data="goods" @on-selection-change="selectChange" ref="selection">
-  </Table>
+  <div>
+    <Table  :columns="title" :data="goods" @on-selection-change="selectChange">
+    </Table>
+  </div>
 </template>
 
 <script>
@@ -37,8 +39,10 @@ export default {
     goods: Array
   },
   methods: {
-    selectChange() {
-      console.log(this.selection)
+    selectChange(selection) {
+      this.$store.commit('setOptGoods', selection)
+      console.log(selection)
+      console.log(this.$store.state.optgoods)
     }
   }
 }
