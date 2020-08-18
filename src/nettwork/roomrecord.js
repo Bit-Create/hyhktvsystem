@@ -30,17 +30,17 @@ export function seletetPay(roomid) {
   })
 }
 
-export function updatePay(roomid, pay) {
+export function updatePay(roomid, pay, type) {
   return request({
     method: 'get',
     url: '/roomrecord',
     params: {
       operation: 'update',
-      type: '' +
-        '',
+      type: '',
       data: {
         roomid: roomid,
-        pay: pay
+        pay: pay,
+        type: type,
       }
     }
   })

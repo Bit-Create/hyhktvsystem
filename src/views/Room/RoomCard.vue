@@ -5,7 +5,7 @@
       <div>房间大小：{{room.type}}</div>
       <room-modal :room="room"  style="text-align: right"></room-modal>
     </card>
-    <room-collapse v-if="room.state == 'using'" :room="room" ></room-collapse>
+    <room-collapse v-if="room.state == 'using'" :room="room" @changestate="room.state = 'free'"></room-collapse>
   </div>
 </template>
 

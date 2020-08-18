@@ -44,10 +44,8 @@ export default {
         return
       }
       setRoomRecord(this.room.roomid, this.$refs.pro.programmeid, this.tel).then(res1 => {
-        console.log(res1)
         if (res1.message == 'true') {
           setRoomState(this.room.roomid, 'using').then((res2) => {
-              console.log(res2)
               if(res2.message == 'true') {
                 this.room.state = 'using'
                 this.$Message.info('选择套餐成功');
@@ -56,7 +54,6 @@ export default {
           })
         }
       })
-      this.$Message.info('错误，服务器连接失败');
     },
     cancel () {
       this.$Message.info('取消套餐选择');

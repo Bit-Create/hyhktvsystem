@@ -4,7 +4,7 @@
       消费详细{{room.roomid}}
       <template slot="content">
         <Divider >结算</Divider>
-        <settlement :room="room" :payable="payable"></settlement>
+        <settlement :room="room" :payable="payable"  @changestate="$emit('changestate')"></settlement>
 
         <Divider>套餐详细</Divider>
         <programme-table :programmes="programme"></programme-table>
@@ -13,7 +13,8 @@
         <Divider>商品出售列表</Divider>
         <div class="Button">
           <goods-modal @ok="requestCreate" class="divstyle"></goods-modal>
-          <diy-goods class="divstyle"></diy-goods>
+          <diy-goods class="divstyle
+"></diy-goods>
         </div>
         <salerecord-table :records="selerecords" @payAble="setPayAble"></salerecord-table>
       </template>
