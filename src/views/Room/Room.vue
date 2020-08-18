@@ -8,7 +8,7 @@
 
 <script>
 import RoomCard from "@/views/Room/RoomCard";
-import {getRoomList} from "@/nettwork/room";
+import {selectRoomList} from "@/nettwork/room";
 
 export default {
 name: "Room",
@@ -20,7 +20,7 @@ name: "Room",
   },
   created() {
     console.log('room created');
-    getRoomList().then(res => {
+    selectRoomList().then(res => {
       this.roomlist = res
     })
   }

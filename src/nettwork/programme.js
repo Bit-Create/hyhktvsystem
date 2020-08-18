@@ -1,6 +1,6 @@
 import {request} from "@/nettwork/request";
 
-export function getProgrammeAll() {
+export function selectProgrammeAll() {
   return request({
     method: 'get',
     url: '/programme',
@@ -14,7 +14,7 @@ export function getProgrammeAll() {
   })
 }
 
-export function getProramme(roomid) {
+export function selectProramme(roomid) {
   return request({
     method: 'get',
     url: '/programme',

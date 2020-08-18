@@ -8,7 +8,7 @@
     </div>
 
     <div v-if="!isShow">
-      <Divider>table</Divider>
+      <Divider>所有用户</Divider>
       <member-table :members="members"></member-table>
     </div>
 
@@ -22,7 +22,7 @@
 
 <script>
 import MemberTable from "@/views/Member/MemberTable";
-import {getMemberMultidata, getMember} from "@/nettwork/member";
+import {selectMemberMultidata, selectMember} from "@/nettwork/member";
 export default {
   name: "Member",
   components: {MemberTable},
@@ -36,10 +36,10 @@ export default {
   },
   methods: {
     searchMembers() {
-      getMember(this.tel).then(res => {
+      selectMember(this.tel).then(res => {
         if(res.message == 'true') {
           this.searchmembers = res.data
-          this.$Message.info('查询成功')
+          this.$Message.success('查询成功')
           this.isShow = !this.isShow
         } else {
           this.$Message.info('查询结果为空')
@@ -48,7 +48,7 @@ export default {
     }
   },
   created() {
-    getMemberMultidata().then(res => {
+    selectMemberMultidata().then(res => {
       this.members = res
     })
   }

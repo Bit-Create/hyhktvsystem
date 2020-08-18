@@ -1,6 +1,6 @@
 import {request} from "@/nettwork/request";
 
-export function setRoomRecord(roomid, programmeid, tel) {
+export function createRoomRecord(roomid, programmeid, tel) {
   return request({
     method: 'get',
     url: '/roomrecord',

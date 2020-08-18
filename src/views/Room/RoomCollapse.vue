@@ -25,9 +25,9 @@
 <script>
 import ProgrammeTable from "@/components/ProgrammeTable";
 import SalerecordTable from "@/components/SalerecordTable";
-import {getProramme} from "@/nettwork/programme";
+import {selectProramme} from "@/nettwork/programme";
 import GoodsModal from "@/components/GoodsModal";
-import {setSelecord, getSelecord} from "@/nettwork/salerecord";
+import {createSelecord, selectSelecord} from "@/nettwork/salerecord";
 import Settlement from "@/views/Room/Settlement";
 import DiyGoods from "@/components/DiyGoods";
 
@@ -49,7 +49,7 @@ export default {
   methods: {
     updateList() {
       this.selerecords = []
-      getSelecord(this.room.roomid).then(res => {
+      selectSelecord(this.room.roomid).then(res => {
         let i = 1
         for (let item of res) {
           item['id'] = i++
@@ -59,7 +59,7 @@ export default {
     },
     requestCreate(optgoods) {
       console.log(this.room.roomid)
-      setSelecord(this.room.roomid, optgoods).then(res => {
+      createSelecord(this.room.roomid, optgoods).then(res => {
         if (res.message == 'true') {
           this.$Message.info('选择商品成功')
           this.payable = res.payable
@@ -74,7 +74,7 @@ export default {
     }
   },
   created() {
-    getProramme(this.room.roomid).then(res => {
+    selectProramme(this.room.roomid).then(res => {
       this.programme = res.data
       this.payable = res.payable
       this.updateList()

@@ -1,6 +1,6 @@
 import {request} from "@/nettwork/request";
 
-export function getGoodsAll() {
+export function selectGoodsAll() {
   return request({
     method: 'get',
     url: '/goods',
@@ -14,7 +14,7 @@ export function getGoodsAll() {
   })
 }
 
-export function getGoodsType(goodtype) {
+export function selectGoodsType(goodtype) {
   return request({
     method: 'get',
     url: '/goods',

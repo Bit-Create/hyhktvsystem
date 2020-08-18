@@ -23,7 +23,7 @@
 
 <script>
 import GoodsTable from "@/components/GoodsTable";
-import {getGoodsAll, getGoodsType} from "@/nettwork/goods";
+import {selectGoodsAll, selectGoodsType} from "@/nettwork/goods";
 
 export default {
   name: "GoodsTabs",
@@ -43,18 +43,18 @@ export default {
       }
     },
     getAll() {
-      getGoodsAll().then(res => {
+      selectGoodsAll().then(res => {
         this.goods = res
       })
     },
     getType(goodstype) {
-      getGoodsType(goodstype).then(res => {
+      selectGoodsType(goodstype).then(res => {
         this.goods = res
       })
     }
   },
   created() {
-    getGoodsAll().then(res => {
+    selectGoodsAll().then(res => {
       this.goods = res
     })
   }

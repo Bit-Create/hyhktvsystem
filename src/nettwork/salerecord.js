@@ -1,6 +1,6 @@
 import {request} from "@/nettwork/request";
 
-export function setSelecord(roomid, goodslist) {
+export function createSelecord(roomid, goodslist) {
   return request({
     method: 'get',
     url: '/salerecord',
@@ -15,7 +15,7 @@ export function setSelecord(roomid, goodslist) {
   })
 }
 
-export function getSelecord(roomid) {
+export function selectSelecord(roomid) {
   return request({
     method: 'get',
     url: '/salerecord',

@@ -18,7 +18,7 @@
         记录查询
       </template>
       <menu-group title="记录">
-        <menu-item name="4-1" to="/storagerecord" replace>存酒记录</menu-item>
+        <menu-item name="4-1" to="/storagerecord" replace>存取记录</menu-item>
         <menu-item name="4-2" to="/roomrecord" replace>开房记录</menu-item>
       </menu-group>
     </submenu>

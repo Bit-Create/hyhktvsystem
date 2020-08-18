@@ -1,6 +1,6 @@
 import {request} from "@/nettwork/request";
 
-export function getMemberMultidata() {
+export function selectMemberMultidata() {
   return request({
     method: 'get',
     url: '/member',
@@ -14,7 +14,7 @@ export function getMemberMultidata() {
   })
 }
 
-export function getMember(tel) {
+export function selectMember(tel) {
   return request({
     method: 'get',
     url: '/member',

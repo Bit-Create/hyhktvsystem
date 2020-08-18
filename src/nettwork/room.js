@@ -1,6 +1,6 @@
 import {request} from "@/nettwork/request";
 
-export function getRoomList() {
+export function selectRoomList() {
   return request({
     method: 'get',
     url: '/room',
@@ -14,7 +14,7 @@ export function getRoomList() {
   })
 }
 
-export function setRoomState(roomid, state) {
+export function updateRoomState(roomid, state) {
   return request({
     method: 'get',
     url: '/room',

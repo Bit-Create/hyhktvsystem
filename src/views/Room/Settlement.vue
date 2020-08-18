@@ -13,7 +13,7 @@
 
 <script>
 import {seletetPay, updatePay} from "@/nettwork/roomrecord";
-import {setRoomState} from "@/nettwork/room";
+import {updateRoomState} from "@/nettwork/room";
 
 export default {
   name: "Settlement",
@@ -32,7 +32,7 @@ export default {
     offRoom() {
       updatePay(this.room.roomid, this.pay, 'checkout').then(res => {
         if(res.message == 'true') {
-          setRoomState(this.room.roomid, 'free').then(res => {
+          updateRoomState(this.room.roomid, 'free').then(res => {
             if(res.message == 'true') {
               this.$emit('changestate')
               this.$Message.success('结算成功')
