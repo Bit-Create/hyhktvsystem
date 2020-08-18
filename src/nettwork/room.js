@@ -20,7 +20,7 @@ export function setRoomState(roomid, state) {
     url: '/room',
     params: {
       operation: 'update',
-      type: 'state',
+      type: '',
       data: {
         roomid: roomid,
         state: state

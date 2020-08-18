@@ -1,6 +1,6 @@
 <template>
   <div class="divstyle">
-    <card style="font-size: 20px" v->
+    <card style="font-size: 20px">
       房间号：{{room.roomid}}
       <div>房间大小：{{room.type}}</div>
       <room-modal :room="room"  style="text-align: right"></room-modal>

@@ -1,7 +1,7 @@
 <template>
   <Collapse >
     <Panel name="1">
-      消费详细
+      消费详细{{room.roomid}}
       <template slot="content">
         <Divider >结算</Divider>
         <settlement :room="room" :payable="payable"></settlement>
@@ -11,10 +11,9 @@
         <br>
 
         <Divider>商品出售列表</Divider>
-        <div style="text-align: right">
-          <Button type="info" shape="circle" @click="$store.commit('setGoodsModal')">选择已有商品</Button>
-          <goods-modal @ok="requestCreate"></goods-modal>
-          <Button type="info" shape="circle">增加自定义商品</Button>
+        <div class="Button">
+          <goods-modal @ok="requestCreate" class="divstyle"></goods-modal>
+          <diy-goods class="divstyle"></diy-goods>
         </div>
         <salerecord-table :records="selerecords" @payAble="setPayAble"></salerecord-table>
       </template>
@@ -29,10 +28,11 @@ import {getProramme} from "@/nettwork/programme";
 import GoodsModal from "@/components/GoodsModal";
 import {setSelecord, getSelecord} from "@/nettwork/salerecord";
 import Settlement from "@/views/Room/Settlement";
+import DiyGoods from "@/components/DiyGoods";
 
 export default {
   name: "RoomCollapse",
-  components: {Settlement, GoodsModal, SalerecordTable, ProgrammeTable},
+  components: {DiyGoods, Settlement, GoodsModal, SalerecordTable, ProgrammeTable},
   data() {
     return {
       programme: [],
@@ -57,6 +57,7 @@ export default {
       })
     },
     requestCreate(optgoods) {
+      console.log(this.room.roomid)
       setSelecord(this.room.roomid, optgoods).then(res => {
         if (res.message == 'true') {
           this.$Message.info('选择商品成功')
@@ -71,9 +72,6 @@ export default {
       this.payable = payable
     }
   },
-  computed: {
-
-  },
   created() {
     getProramme(this.room.roomid).then(res => {
       this.programme = res.data
@@ -85,8 +83,14 @@ export default {
 </script>
 
 <style scoped>
-Button {
+.Button {
   margin-bottom: 25px;
   margin-right: 10px;
+  height: 30px;
+  text-align: right;
+}
+.divstyle {
+  display: inline-block;
+  margin-right: 20px;
 }
 </style>

@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import {getMemberMultidata} from "@/nettwork/member";
 
 export default {
   name: "MemberTable",

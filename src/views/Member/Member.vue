@@ -5,7 +5,6 @@
              placeholder="输入电话号码..."
              v-model="tel" @on-search="searchMembers"
              @on-change="isShow = false"></Input>
-      <Button type="primary" style="margin-left: 10px">存酒</Button>
     </div>
 
     <div v-if="!isShow">
@@ -50,7 +49,6 @@ export default {
   },
   created() {
     getMemberMultidata().then(res => {
-      console.log(res)
       this.members = res
     })
   }

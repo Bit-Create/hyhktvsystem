@@ -29,3 +29,19 @@ export function seletetPay(roomid) {
     }
   })
 }
+
+export function updatePay(roomid, pay) {
+  return request({
+    method: 'get',
+    url: '/roomrecord',
+    params: {
+      operation: 'update',
+      type: '' +
+        '',
+      data: {
+        roomid: roomid,
+        pay: pay
+      }
+    }
+  })
+}
